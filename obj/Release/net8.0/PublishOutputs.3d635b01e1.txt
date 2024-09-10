@@ -1,0 +1,7 @@
+C:\Users\Jeff\Desktop\4952\lab1\publish\lab1.exe
+C:\Users\Jeff\Desktop\4952\lab1\publish\appsettings.Development.json
+C:\Users\Jeff\Desktop\4952\lab1\publish\appsettings.json
+C:\Users\Jeff\Desktop\4952\lab1\publish\lab1.dll
+C:\Users\Jeff\Desktop\4952\lab1\publish\lab1.deps.json
+C:\Users\Jeff\Desktop\4952\lab1\publish\lab1.runtimeconfig.json
+C:\Users\Jeff\Desktop\4952\lab1\publish\lab1.pdb
