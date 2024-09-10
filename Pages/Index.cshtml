@@ -1,0 +1,34 @@
+﻿@page
+@model lab1.Namespace.IndexModel
+@{
+    string? zodiac = ViewData["Zodiac"] as string;
+    string zodiacFile = Url.Content("~/images/" + zodiac!.ToLower() + ".png");
+}
+
+<h2>Enter a Year to Get Your Zodiac Sign</h2>
+<p><strong>Developed by:</strong> Jeffery MJ</p>
+
+<form method="post">
+    <div id="div__year">
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" id="year" type="int">
+    </div>
+    <div id="submit__box">
+        <button type="submit">Get Zodiac</button>
+        <a asp-action="Zodiac">Clear</a>
+    </div>
+
+</form>
+@if (@zodiac!.Length > 0 && @zodiac!.ToString() != "Error")
+{
+    <div id="zodiac_results">
+        <img src="@zodiacFile" alt="" />
+        <h5>Your zodiac is <span>@zodiac.</span></h5>
+    </div>
+}
+@if (@zodiac!.ToString() == "Error")
+{
+    <div id="zodiac_error">
+        <h5>Year must be between 1900 and next year. Please Try Again.</h5>
+    </div>
+}
