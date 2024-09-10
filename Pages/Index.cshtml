@@ -1,34 +1,35 @@
 ﻿@page
 @model lab1.Namespace.IndexModel
 @{
-    string? zodiac = ViewData["Zodiac"] as string;
-    string zodiacFile = Url.Content("~/images/" + zodiac!.ToLower() + ".png");
+    string zodiacSign = ViewData["Zodiac"] as string ?? string.Empty;
+    string zodiacImagePath = Url.Content($"~/images/{zodiacSign.ToLower()}.png");
 }
 
-<h2>Enter a Year to Get Your Zodiac Sign</h2>
-<p style="font-size: xx-small;">Jeffery MJ</p>
+<h2>Find Your Zodiac Sign</h2>
+<p style="font-size: small; color: gray;">Jeffery MJ</p>
 
 <form method="post">
-    <div id="div__year">
-        <label asp-for="Year">Year</label>
-        <input asp-for="Year" id="year" type="int">
+    <div class="year-input">
+        <label asp-for="Year">Enter Year</label>
+        <input asp-for="Year" type="number" id="input-year" />
     </div>
-    <div id="submit__box">
-        <button type="submit">Get Zodiac</button>
-        <a asp-action="Zodiac">Clear</a>
+
+    <div class="actions">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a href="/" class="btn btn-secondary">Reset</a>
     </div>
 </form>
 
-@if (@zodiac!.Length > 0 && @zodiac!.ToString() != "Error")
+@if (!string.IsNullOrEmpty(zodiacSign) && zodiacSign != "Error")
 {
-    <div id="zodiac_results">
-        <img src="@zodiacFile" alt="" />
-        <h5>Your zodiac is <span>@zodiac.</span></h5>
+    <div class="zodiac-result">
+        <img src="@zodiacImagePath" alt="Zodiac Image" class="zodiac-img" />
+        <h4>Your Zodiac Sign is <strong>@zodiacSign</strong>.</h4>
     </div>
 }
-@if (@zodiac!.ToString() == "Error")
+else if (zodiacSign == "Error")
 {
-    <div id="zodiac_error">
-        <h5>Year must be between 1900 and next year. Please Try Again.</h5>
+    <div class="error-message">
+        <h4>Invalid Year. Please enter a year between 1900 and the next year.</h4>
     </div>
 }
