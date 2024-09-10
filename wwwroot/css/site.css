@@ -38,7 +38,7 @@ body {
 #submit__box button {
   padding: 5px;
   width: 100px;
-  height: 35px;
+  height: 30px;
   border: 0;
   border-radius: 8%;
   background-color: #0D6EFD;
@@ -62,8 +62,8 @@ body {
   align-items: center;
   background-color: rgba(61, 231, 61, 0.471);
   padding: 30px;
-  height: 350px;
-  width: 350px;
+  height: 300px;
+  width: 300px;
   border: 1px solid green;
   border-radius: 10px;
 }
